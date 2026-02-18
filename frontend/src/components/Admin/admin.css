@@ -1,0 +1,29 @@
+.admin-layout {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.admin-main {
+  flex: 1;          /* 🔥 THIS IS IMPORTANT */
+  width: 100%;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: #1c1f3a;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #6d28d9;
+  border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+
