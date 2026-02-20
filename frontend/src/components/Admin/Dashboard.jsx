@@ -6,6 +6,8 @@ import TotalEarning from "./TotalEarning";
 import TotalProfit from "./TotalProfit";
 import Refunds from "./Refunds";
 import ProductList from "./ProductList";
+import ContactDetail from "./ContactDetail";
+import AdminSchedule from "./AdminSchedule";
 
 const Dashboard = () => {
   return (
@@ -94,6 +96,8 @@ const Dashboard = () => {
         </div>
 
         <ProductList />
+        <ContactDetail />
+        <AdminSchedule />
       </div>
     </AdminLayout>
   );

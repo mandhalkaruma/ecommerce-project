@@ -40,7 +40,7 @@ export default function Navbar() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
                 {/* Left side: Logo */}
                 <div className="flex items-center space-x-8">
-                    <div onClick={()=>navigate('/')} className="text-2xl font-bold text-indigo-600">Shoppify</div>
+                    <div onClick={() => navigate('/')} className="text-2xl font-bold text-indigo-600">Shoppify</div>
 
                     {/* Menu links */}
                     <nav className="hidden md:flex space-x-6">
@@ -64,7 +64,7 @@ export default function Navbar() {
                                                     leaveTo="opacity-0 translate-y-1"
                                                 >
                                                     <Popover.Panel className="absolute z-50 mt-2 w-40 bg-white shadow-lg border border-gray-200 rounded-md py-2">
-                                                        {categories[link].map((item) => (
+                                                        {/* {categories[link].map((item) => (
                                                             <a
                                                                 key={item}
                                                                 href="#"
@@ -72,16 +72,41 @@ export default function Navbar() {
                                                             >
                                                                 {item}
                                                             </a>
+                                                        ))} */}
+
+                                                        {categories[link].map((item) => (
+                                                            <p
+                                                                key={item}
+                                                                onClick={() => {
+                                                                    const formattedCategory =
+                                                                        link.toLowerCase() +
+                                                                        "_" +
+                                                                        item.toLowerCase().replace("-", "").replace(" ", "");
+
+                                                                    navigate(`/products/${formattedCategory}`);
+                                                                }}
+                                                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                                                            >
+                                                                {item}
+                                                            </p>
                                                         ))}
+
                                                     </Popover.Panel>
                                                 </Transition>
                                             </>
                                         )}
                                     </Popover>
                                 ) : (
-                                    <a href="#" className="text-gray-700 hover:text-indigo-600 font-medium">
+                                    <p
+                                        onClick={() => {
+                                            if (link === "Contact") navigate("/contact");
+                                            else if (link === "Stores") navigate("/stores");
+                                        }}
+                                        className="text-gray-700 hover:text-indigo-600 font-medium cursor-pointer"
+                                    >
                                         {link}
-                                    </a>
+                                    </p>
+
                                 )}
                             </div>
                         ))}
@@ -101,7 +126,7 @@ export default function Navbar() {
                         </>
                     ) : (
                         <button onClick={handleLogout}
-                        className='text-gray-700 hover:text-indigo-600 font-medium'>
+                            className='text-gray-700 hover:text-indigo-600 font-medium'>
                             Logout
                         </button>
                     )}

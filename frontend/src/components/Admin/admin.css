@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 .admin-layout {
   display: flex;
   width: 100vw;
@@ -5,7 +7,8 @@
 }
 
 .admin-main {
-  flex: 1;          /* 🔥 THIS IS IMPORTANT */
+  flex: 1;
+  /* 🔥 THIS IS IMPORTANT */
   width: 100%;
 }
 
@@ -25,5 +28,43 @@
 
 .custom-scroll::-webkit-scrollbar-thumb:hover {
   background: #7c3aed;
+}
+
+
+/* REMOVE WHITE BACKGROUND */
+.react-calendar {
+  background: transparent !important;
+  border: none !important;
+  color: #e5e7eb;
+  width: 100%;
+}
+
+/* MONTH TEXT */
+.react-calendar__navigation button {
+  background: transparent !important;
+  color: #c084fc;
+}
+
+/* WEEK DAYS */
+.react-calendar__month-view__weekdays {
+  color: #9ca3af;
+}
+
+/* DATE NUMBERS */
+.react-calendar__tile {
+  background: transparent !important;
+  color: #e5e7eb;
+}
+
+/* SELECTED DATE SIMPLE */
+.react-calendar__tile--active {
+  background: #7c3aed !important;
+  color: white !important;
+}
+
+/* TODAY DATE */
+.react-calendar__tile--now {
+  background: rgba(124, 58, 237, 0.3) !important;
+  color: white !important;
 }
 

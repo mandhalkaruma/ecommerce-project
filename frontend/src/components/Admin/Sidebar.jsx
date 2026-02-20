@@ -16,7 +16,7 @@ const Sidebar = () => {
   `;
 
   return (
-    <aside className="w-64 bg-[#0b1020] text-gray-300 min-h-screen shadow-xl">
+    <aside className="w-64 h-screen sticky top-0 bg-[#0b1020] text-gray-300 shadow-xl">
       <div className="p-6 text-2xl text-center font-bold text-purple-400 tracking-wide">
         Shoppify
       </div>

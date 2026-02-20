@@ -12,6 +12,8 @@ import Users from './components/Admin/Users'
 import { Footer } from './components/Footer'
 import AddProduct from './components/Admin/AddProduct'
 import Home from './components/Home'
+import CategoryProduct from './components/pages/CategoryProduct'
+import Contact from './components/Contact'
 
 const App = () => {
 
@@ -29,6 +31,8 @@ const App = () => {
       <Route path='/' element={<Home />}/>
       <Route path='/register' element={<Register />}/>
       <Route path='/login' element={<Login />}/>
+      <Route path='/contact' element={<Contact />}/>
+      <Route path='/products/:category' element={<CategoryProduct />}/>
 
       {/* Admin route */}
       <Route 
