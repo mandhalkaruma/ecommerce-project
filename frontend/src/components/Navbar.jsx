@@ -6,8 +6,8 @@ import { ChevronDownIcon, MagnifyingGlassIcon, ShoppingBagIcon } from '@heroicon
 import { Link, useNavigate } from 'react-router-dom'
 
 const categories = {
-    Women: ['Tops', 'Dresses', 'Pants', 'Shoes', 'Accessories'],
-    Men: ['T-Shirts', 'Jeans', 'Jackets', 'Shoes', 'Accessories'],
+    Women: ['Tops', 'Dresses', 'Gowns', 'Kurta', 'Lehenga'],
+    Men: ['Shirts', 'Kurta', 'Jackets', 'Shoes', 'Accessories'],
 }
 
 export default function Navbar() {

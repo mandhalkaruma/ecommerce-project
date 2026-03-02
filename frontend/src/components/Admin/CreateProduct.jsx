@@ -179,28 +179,32 @@ const CreateProduct = ({ closeModel }) => {
                                 Select Category
                             </option>
 
-                            <option className="bg-[#1e1e2f] text-white" value="Women Dress">
+                            <option className="bg-[#1e1e2f] text-white" value="women_dresses">
                                 Women's Dress
                             </option>
 
-                            <option className="bg-[#1e1e2f] text-white" value="Women Gowns">
+                            <option className="bg-[#1e1e2f] text-white" value="women_gowns">
                                 Women's Gowns
                             </option>
 
-                            <option className="bg-[#1e1e2f] text-white" value="Women Kurta">
+                            <option className="bg-[#1e1e2f] text-white" value="women_kurta">
                                 Women Kurta
                             </option>
 
-                            <option className="bg-[#1e1e2f] text-white" value="Mens Kurta">
+                            <option className="bg-[#1e1e2f] text-white" value="men_kurta">
                                 Mens Kurta
                             </option>
 
-                            <option className="bg-[#1e1e2f] text-white" value="Mens Shirt">
+                            <option className="bg-[#1e1e2f] text-white" value="men_shirts">
                                 Mens Shirt
                             </option>
 
-                            <option className="bg-[#1e1e2f] text-white" value="Women Tops">
+                            <option className="bg-[#1e1e2f] text-white" value="women_tops">
                                 Women Tops
+                            </option>
+
+                            <option className="bg-[#1e1e2f] text-white" value="women_lehenga">
+                                Lengha Choli
                             </option>
 
                         </select>

@@ -14,6 +14,7 @@ import AddProduct from './components/Admin/AddProduct'
 import Home from './components/Home'
 import CategoryProduct from './components/pages/CategoryProduct'
 import Contact from './components/Contact'
+import SingleProduct from './components/pages/SingleProduct'
 
 const App = () => {
 
@@ -33,6 +34,7 @@ const App = () => {
       <Route path='/login' element={<Login />}/>
       <Route path='/contact' element={<Contact />}/>
       <Route path='/products/:category' element={<CategoryProduct />}/>
+      <Route path='/product/:id' element={<SingleProduct />}/>
 
       {/* Admin route */}
       <Route 

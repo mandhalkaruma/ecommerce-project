@@ -4,49 +4,6 @@ import axios from "axios";
 
 const ProductList = () => {
 
-    // const products = [
-    //     {
-    //         id: 1,
-    //         name: "Women Kurta",
-    //         category: "Clothing",
-    //         price: "₹1,200",
-    //         stock: 25,
-    //         image: "https://via.placeholder.com/60"
-    //     },
-    //     {
-    //         id: 2,
-    //         name: "Men Shirt",
-    //         category: "Clothing",
-    //         price: "₹900",
-    //         stock: 12,
-    //         image: "https://via.placeholder.com/60"
-    //     },
-    //     {
-    //         id: 3,
-    //         name: "Women Top",
-    //         category: "Clothing",
-    //         price: "₹750",
-    //         stock: 40,
-    //         image: "https://via.placeholder.com/60"
-    //     },
-    //     {
-    //         id: 4,
-    //         name: "Men Kurta",
-    //         category: "Clothing",
-    //         price: "₹1,500",
-    //         stock: 18,
-    //         image: "https://via.placeholder.com/60"
-    //     },
-    //     {
-    //         id: 5,
-    //         name: "Women Gown",
-    //         category: "Clothing",
-    //         price: "₹2,100",
-    //         stock: 8,
-    //         image: "https://via.placeholder.com/60"
-    //     }
-    // ];
-
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -72,7 +29,7 @@ const ProductList = () => {
 
             {/* LOCAL SCROLLBAR ONLY */}
             <div className="
-                w-full max-h-[420px] overflow-y-auto overflow-x-hidden rounded-lg
+                w-full max-h-[420px] overflow-y-auto overflow-x-hidden rounded-lg product-scroll
       ">
                 <div className="min-w-full overflow-x-auto">
                     <table className="min-w-[00px] text-left text-gray-300">
@@ -86,6 +43,7 @@ const ProductList = () => {
                                 <th className="p-4">Color</th>
                                 <th className="p-4">Sizes</th>
                                 <th className="p-4">Category</th>
+                                <th className="p-4">Actions</th>
                             </tr>
                         </thead>
 
@@ -112,8 +70,6 @@ const ProductList = () => {
                                     <td className="p-4">{product.quantity}</td>
 
                                     <td className="p-4">{product.color}</td>
-
-                                    {/* <td className="p-4">{product.sizes}</td> */}
                                     <td className="p-4">
                                         {
                                             product.sizes
@@ -123,6 +79,19 @@ const ProductList = () => {
                                         }
                                     </td>
                                     <td className="p-4">{product.category}</td>
+                                    <td className="p-4">
+                                        <div className="flex items-center gap-3">
+
+                                            <div className="p-2 bg-blue-500/20 rounded-lg cursor-pointer hover:bg-blue-500/40">
+                                                <FaEdit className="text-blue-400 text-sm" />
+                                            </div>
+
+                                            <div className="p-2 bg-red-500/20 rounded-lg cursor-pointer hover:bg-red-500/40">
+                                                <FaTrash className="text-red-400 text-sm" />
+                                            </div>
+
+                                        </div>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

@@ -34,9 +34,10 @@ const ContactDetail = () => {
             </h2>
 
             {/* Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-                {contacts?.map((item) => (
+            <div className="h-[600px] overflow-y-auto pr-2 contact-scroll">    
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {contacts?.map((item) => (
                     <div
                         key={item._id}
                         className="bg-white/5 border border-white/10 p-5 rounded-xl shadow-md hover:shadow-lg transition"
@@ -84,8 +85,13 @@ const ContactDetail = () => {
 
                     </div>
                 ))}
-
+                </div>
             </div>
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                
+
+            </div> */}
         </div>
     );
 

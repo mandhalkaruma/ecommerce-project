@@ -14,13 +14,13 @@ export const createProduct = async (req,res) => {
         });
     }
 
-    const productExists = await Product.findOne({title});
-    if(productExists) {
-        return res.status(400).json({
-            success:false,
-            message:"Product already exists"
-        });
-    }
+    // const productExists = await Product.findOne({title});
+    // if(productExists) {
+    //     return res.status(400).json({
+    //         success:false,
+    //         message:"Product already exists"
+    //     });
+    // }
 
     const product = await Product.create({
         title,
@@ -51,20 +51,22 @@ export const createProduct = async (req,res) => {
 // get all products
 export const getAllProducts = async (req,res) => {
     try {
-        
-        const products = await Product.find().sort({createdAt:-1});
 
-        if(!products) {
-            return res.status(404).json({
-                success:false,
-                message:"Product not found"
-            });
+        const category = req.query.category;
+
+        let filter = {};
+
+        if(category) {
+            filter.category = category;
         }
 
-        return res.status(200).json({
+        const products = await Product.find(filter);
+
+        res.json({
             success:true,
             products
         });
+        
 
     } catch (error) {
         console.log(error.message);
