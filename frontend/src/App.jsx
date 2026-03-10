@@ -15,8 +15,11 @@ import CategoryProduct from './components/pages/CategoryProduct'
 import Contact from './components/Contact'
 import SingleProduct from './components/pages/SingleProduct'
 import Cart from './components/pages/Cart'
-import Checkout from './components/pages/Checkout'
 import OrderSummary from './components/pages/OrderSummary'
+import AddressCard from './components/pages/AddressCard';
+import PaymentSuccess from './components/pages/PaymentSuccess';
+import Order from './components/pages/Order';
+
 
 const App = () => {
 
@@ -38,8 +41,10 @@ const App = () => {
       <Route path='/products/:category' element={<CategoryProduct />}/>
       <Route path='/product/:id' element={<SingleProduct />}/>
       <Route path='/cart' element={<Cart />}/>
-      <Route path='/checkout' element={<Checkout />}/>
+      <Route path='/address_card' element={<AddressCard />}/>
       <Route path='/order_summary/:id' element={<OrderSummary />}/>
+      <Route path='/payment-success' element={<PaymentSuccess />}/>
+      <Route path='order' element={<Order />}/>
 
       {/* Admin route */}
       <Route 

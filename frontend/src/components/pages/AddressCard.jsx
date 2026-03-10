@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import CheckoutSteps from "./CheckoutSteps";
 import { useNavigate } from "react-router-dom";
 
-const Checkout = () => {
+const AddressCard = () => {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -172,4 +172,4 @@ const Checkout = () => {
     );
 };
 
-export default Checkout;
+export default AddressCard;

@@ -4,6 +4,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { ChevronDownIcon, MagnifyingGlassIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
 import { Link, useNavigate } from 'react-router-dom'
+import { FiPackage } from "react-icons/fi";
 
 const categories = {
     Women: ['Tops', 'Dresses', 'Gowns', 'Kurta', 'Lehenga'],
@@ -15,11 +16,24 @@ export default function Navbar() {
     const navigate = useNavigate();
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [initials, setInitials] = useState("");
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        if (token) setIsLoggedIn(true);
-        else setIsLoggedIn(false);
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if (token) {
+            setIsLoggedIn(true);
+
+            if (user) {
+                const first = user.firstName?.charAt(0).toUpperCase();
+                const last = user.lastName?.charAt(0).toUpperCase();
+                setInitials(first + last);
+            }
+        } else {
+            setIsLoggedIn(false);
+        }
+
     }, []);
 
     const handleLogout = () => {
@@ -64,7 +78,7 @@ export default function Navbar() {
                                                     leaveTo="opacity-0 translate-y-1"
                                                 >
                                                     <Popover.Panel className="absolute z-50 mt-2 w-40 bg-white shadow-lg border border-gray-200 rounded-md py-2">
-                                                        
+
                                                         {categories[link].map((item) => (
                                                             <p
                                                                 key={item}
@@ -116,18 +130,24 @@ export default function Navbar() {
                             </Link>
                         </>
                     ) : (
-                        <button onClick={handleLogout}
-                            className='text-gray-700 hover:text-indigo-600 font-medium'>
-                            Logout
-                        </button>
+                        <div className='flex items-center space-x-3'>
+                            <button onClick={handleLogout}
+                                className='text-gray-700 hover:text-indigo-600 font-medium'>
+                                Logout
+                            </button>
+                        </div>
+
                     )}
 
                     <button className="text-gray-700 hover:text-indigo-600">
                         <MagnifyingGlassIcon className="h-5 w-5" />
                     </button>
-                    <button onClick={()=>navigate("/cart")} className="flex items-center text-gray-700 hover:text-indigo-600">
+                    <button onClick={() => navigate("/cart")} className="flex items-center text-gray-700 hover:text-indigo-600">
                         <ShoppingBagIcon className="h-5 w-5 mr-1" />
                         0
+                    </button>
+                    <button onClick={()=>navigate("/order")} className="text-gray-700 hover:text-indigo-600">
+                        <FiPackage className="h-5 w-5" />
                     </button>
                 </div>
             </div>

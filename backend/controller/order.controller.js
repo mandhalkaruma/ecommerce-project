@@ -42,13 +42,14 @@ export const getAllOrders = async (req,res) => {
         
         const orders = await Order.find({user:req.userId})
         .populate("shippingAddress")
-        .populate("orderItems")
+        .populate("orderItems.product")
         .sort({createdAt: -1});
 
-        if(!orders) {
+        if(orders.length === 0) {
             return res.status(404).json({
-                success:false,
-                message:"Failed to fetch orders"
+                success:true,
+                orders:[],
+                message:"No orders found"
             });
         }
 
@@ -72,10 +73,7 @@ export const getSingleOrder = async (req,res) => {
         
         const order = await Order.findById(req.params.id)
         .populate("shippingAddress")
-        .populate({
-            path:"orderItems",
-            model:"Product"
-        });
+        .populate("orderItems.product");
 
         if(!order) {
             return res.status(404).json({

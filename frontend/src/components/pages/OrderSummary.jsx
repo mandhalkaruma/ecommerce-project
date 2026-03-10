@@ -1,13 +1,29 @@
 import React, { useEffect, useState } from "react";
 import CheckoutSteps from "./CheckoutSteps";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { loadStripe } from "@stripe/stripe-js";
 
 const OrderSummary = () => {
 
   const [cartItems, setCartItems] = useState([]);
   const [order, setOrder] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
+
+  const stripePromise = loadStripe("pk_test_51RSMiRQryrfmx3QyjRqBNH7WBErjsH7RpqD3nIAxuNCZRNjWfikCTXtsqHQP6GKVuG0EKV4qAOe54Ie9BeNGBqrl00gfHThPli");
+
+  const handlePayment = async () => {
+
+    const stripe = await stripePromise;
+
+    const { data } = await axios.post(
+      "http://localhost:5000/api/payment/checkout-session",
+      { amount: order.totalPrice }
+    );
+
+    window.location.href = data.url;
+  };
 
   const getOrder = async () => {
     try {
@@ -174,7 +190,9 @@ const OrderSummary = () => {
 
           </div>
 
-          <button className="w-full mt-5 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded">
+          <button
+          onClick={handlePayment}
+           className="w-full mt-5 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded">
             PAYMENT
           </button>
 

@@ -16,11 +16,14 @@ const Login = () => {
       const res = await axios.post("http://localhost:5000/api/auth/login", {
         email, password
       });
-      console.log("Email ", email);
-      console.log("password ", password);
+
+      // console.log(res.data);
+      // console.log("Email ", email);
+      // console.log("password ", password);
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("role", res.data.user.role);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
       toast.success("Login successful");
 
       if (res.data.user.role === "admin") {

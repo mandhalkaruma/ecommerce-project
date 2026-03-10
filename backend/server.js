@@ -9,6 +9,7 @@ import taskRouter from './routes/admin/task.routes.js';
 import cartRouter from './routes/cart.routes.js';
 import addressRouter from './routes/address.routes.js';
 import orderRouter from './routes/order.routes.js';
+import paymentRouter from './routes/payment.routes.js';
 
 
 await connectDB();
@@ -26,6 +27,7 @@ app.use('/api/v1', taskRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/addresses", addressRouter);
 app.use("/api/order", orderRouter);
+app.use("/api/payment", paymentRouter);
 
 app.get('/', (req, res) => {
     res.json("Hello Api is running")

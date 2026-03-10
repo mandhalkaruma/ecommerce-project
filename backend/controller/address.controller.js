@@ -6,7 +6,7 @@ export const addaddress = async (req, res) => {
         const { firstName, lastName, address, city, state, zipCode, mobile } = req.body;
 
         if (!firstName || !lastName || !address || !city || !state || !zipCode || !mobile) {
-            return res.state(400).json({
+            return res.status(400).json({
                 success: false,
                 message: "All fields are required"
             });

@@ -161,7 +161,7 @@ const Cart = () => {
                     <span>₹{totalAmount}</span>
                 </div>
 
-                <button onClick={()=>navigate("/checkout")} className="mt-6 w-full bg-purple-600 text-white py-3 rounded-md">
+                <button onClick={()=>navigate("/address_card")} className="mt-6 w-full bg-purple-600 text-white py-3 rounded-md">
                     CHECK OUT
                 </button>
             </div>
