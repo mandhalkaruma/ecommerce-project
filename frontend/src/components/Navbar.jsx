@@ -64,16 +64,7 @@ export default function Navbar() {
                                                     leaveTo="opacity-0 translate-y-1"
                                                 >
                                                     <Popover.Panel className="absolute z-50 mt-2 w-40 bg-white shadow-lg border border-gray-200 rounded-md py-2">
-                                                        {/* {categories[link].map((item) => (
-                                                            <a
-                                                                key={item}
-                                                                href="#"
-                                                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                                                            >
-                                                                {item}
-                                                            </a>
-                                                        ))} */}
-
+                                                        
                                                         {categories[link].map((item) => (
                                                             <p
                                                                 key={item}
@@ -131,14 +122,10 @@ export default function Navbar() {
                         </button>
                     )}
 
-                    {/* <div className="flex items-center space-x-1">
-                        <img src="https://tailwindcss.com/plus-assets/img/flags/flag-canada.svg" alt="CAD" className="h-5 w-5" />
-                        <span className="text-gray-700 font-medium">CAD</span>
-                    </div> */}
                     <button className="text-gray-700 hover:text-indigo-600">
                         <MagnifyingGlassIcon className="h-5 w-5" />
                     </button>
-                    <button className="flex items-center text-gray-700 hover:text-indigo-600">
+                    <button onClick={()=>navigate("/cart")} className="flex items-center text-gray-700 hover:text-indigo-600">
                         <ShoppingBagIcon className="h-5 w-5 mr-1" />
                         0
                     </button>

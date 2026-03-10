@@ -4,7 +4,7 @@ const FilterSidebar = ({ openFilter, toggleFilter }) => {
   return (
     <div className=" bg-white p-5 rounded-lg shadow-md h-[90vh] overflow-y-auto sticky top-20">
       <h2 className="text-2xl font-bold mb-6 text-gray-800">
-        Women Tops
+        Products
       </h2>
 
 

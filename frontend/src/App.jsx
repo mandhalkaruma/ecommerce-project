@@ -1,6 +1,5 @@
 import React from 'react'
 import Navbar from './components/Navbar'
-import HeroSection from './components/HeroSection'
 import Register from './components/Register'
 import Login from './components/Login'
 import { ToastContainer } from "react-toastify";
@@ -15,6 +14,9 @@ import Home from './components/Home'
 import CategoryProduct from './components/pages/CategoryProduct'
 import Contact from './components/Contact'
 import SingleProduct from './components/pages/SingleProduct'
+import Cart from './components/pages/Cart'
+import Checkout from './components/pages/Checkout'
+import OrderSummary from './components/pages/OrderSummary'
 
 const App = () => {
 
@@ -35,6 +37,9 @@ const App = () => {
       <Route path='/contact' element={<Contact />}/>
       <Route path='/products/:category' element={<CategoryProduct />}/>
       <Route path='/product/:id' element={<SingleProduct />}/>
+      <Route path='/cart' element={<Cart />}/>
+      <Route path='/checkout' element={<Checkout />}/>
+      <Route path='/order_summary/:id' element={<OrderSummary />}/>
 
       {/* Admin route */}
       <Route 
